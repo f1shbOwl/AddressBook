@@ -16,7 +16,7 @@ namespace AddressBook.Services
 
 
         /// <summary>
-        /// Just nu är denna hårdkodad, kom ihåg att ändra innan du skickar in!!!!
+        /// Creates a file path and saves contacts to json file.
         /// </summary>
         private readonly FileService _fileService = new FileService(Path.Combine(Environment.CurrentDirectory,@"..\..\..\SavedFiles\SavedContacts.json"));
         

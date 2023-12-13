@@ -2,6 +2,10 @@
 
 namespace AddressBook.Interfaces
 {
+
+    /// <summary>
+    /// Interface for ContactService
+    /// </summary>
     public interface IContactService
     {
         void AddContactToList(Contacts contacts);

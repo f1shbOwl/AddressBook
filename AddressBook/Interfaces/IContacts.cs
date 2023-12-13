@@ -1,5 +1,9 @@
 ﻿namespace AddressBook.Interfaces
 {
+
+    /// <summary>
+    /// Interface for contacts that is not really utilized right now.
+    /// </summary>
     public interface IContacts
     {
         string Address { get; set; }

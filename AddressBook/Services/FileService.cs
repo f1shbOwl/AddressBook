@@ -3,6 +3,12 @@ using System.Diagnostics;
 
 namespace AddressBook.Services
 {
+
+    /// <summary>
+    /// Implementing interface IFileservice and handles saving the contact details to file.
+    /// Tries to save a contact o json and if successful returns true. 
+    /// </summary>
+    
     internal class FileService(string filePath) : IFileService
     {
         private readonly string _filePath = filePath;
@@ -22,6 +28,12 @@ namespace AddressBook.Services
 
         }
 
+
+        /// <summary>
+        /// Using StreamReader to try and read the json file _filePath.
+        /// If not successful it logs error message and returns null.
+        /// </summary>
+        
         public string GetContactFromFile()
         {
             try

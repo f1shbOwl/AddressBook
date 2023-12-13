@@ -14,6 +14,11 @@ namespace AddressBook.Tests
     public class ContactService_Tests
     {
 
+
+        /// <summary>
+        /// Testing the function AddContactToList by creating a contact using string values firstname, lastname etc.
+        /// It then checks if contact was added and not null.
+        /// </summary>
         [Fact]
         public void AddContactToListShould_AddOneContactToContactList_ThenReturnTrue()
         {

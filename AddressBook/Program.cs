@@ -8,7 +8,10 @@ namespace AddressBook
         static void Main(string[] args)
         {
 
-            //Intro
+            ///<summary>
+            /// Intro - Do i really want this here? hmmm....
+            /// Tried to make it look better and with less code using printDelay but it wouldnt work the way i wanted.
+            ///</summary>
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();

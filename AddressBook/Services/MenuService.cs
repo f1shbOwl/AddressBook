@@ -125,6 +125,8 @@ namespace AddressBook.Services
 
         /// <summary>
         /// DETAILED VIEW MENU - with options to change the selected contacts details, delete the selected contact or go back to main menu
+        /// Changing contact details maybe should have been a loop because now after two faulty tries to delete contact it just goes back to main menu.
+        /// Maybe also should have been its own menu as now there is no option so change a specific detail, user have to change or atleast rewrite everything.
         /// </summary>
         private void ShowDetailMenu(Contacts selectedContact)
         {
