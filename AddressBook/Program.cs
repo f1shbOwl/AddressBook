@@ -116,9 +116,11 @@ namespace AddressBook
             Console.Write("N");
             Thread.Sleep(3000);
 
-            
 
-            //Loading MainMenu
+
+            ///<summary>
+            /// Loading MainMenu
+            ///</summary>
             var menuService = new MenuService();
 
             menuService.ShowMainMenu();

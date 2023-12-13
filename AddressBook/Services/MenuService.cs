@@ -15,7 +15,9 @@ namespace AddressBook.Services
         private readonly ContactService _ContactService = new ContactService();
 
 
-        //Main Menu
+        /// <summary>
+        /// MAIN MENU - Add new contact - Show all contacts - Exit program
+        /// </summary>
         public void ShowMainMenu()
         {
             while (true)
@@ -54,7 +56,9 @@ namespace AddressBook.Services
         }
 
 
-        //Add new contact - Menu
+        /// <summary>
+        /// MENU FOR ADDING NEW CONTACTS
+        /// </summary>
         private void ShowAddMenu()
         {
             var contacts = new Contacts("FirstName", "LastName", "Email", "PhoneNumber", "Address", "City", "PostalCode");
@@ -88,7 +92,9 @@ namespace AddressBook.Services
         }
 
 
-        //Show all contacts - menu
+        /// <summary>
+        /// MENU SHOWING ALL CONTACTS by firstname and lastname. Numered. User can pick a contact to view a detail menu by picking the contacts corresponding number.
+        /// </summary>
         private void ShowAllMenu()
         {
             var Contacts = _ContactService.GetContactFromList();
@@ -117,7 +123,9 @@ namespace AddressBook.Services
         }
 
 
-        //Show details about the contact picked
+        /// <summary>
+        /// DETAILED VIEW MENU - with options to change the selected contacts details, delete the selected contact or go back to main menu
+        /// </summary>
         private void ShowDetailMenu(Contacts selectedContact)
         {
             while (true)
@@ -172,8 +180,6 @@ namespace AddressBook.Services
                     case "2":
                         Console.WriteLine();
                         _ContactService.RemoveContact(selectedContact);
-                        Console.WriteLine("Contact deleted successfully.");
-                        Console.ReadLine();
                         return;
 
                     case "3":

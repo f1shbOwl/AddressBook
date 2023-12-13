@@ -10,15 +10,22 @@ using System.Threading.Tasks;
 
 namespace AddressBook.Services
 {
-    internal class ContactService
+    public class ContactService : IContactService
     {
         private List<Contacts> _contacts = new List<Contacts>();
 
-        private readonly FileService _fileService = new FileService(@"F:\Education\ec-projects\SavedToFile\SavedContacts.json");
+
+        /// <summary>
+        /// Just nu är denna hårdkodad, kom ihåg att ändra innan du skickar in!!!!
+        /// </summary>
+        private readonly FileService _fileService = new FileService(Path.Combine(Environment.CurrentDirectory,@"..\..\..\SavedFiles\SavedContacts.json"));
+        
 
 
 
-        //Add contact
+        /// <summary>
+        /// Adds contact to the list (if email is unique) and saves it to the file. If email is not unique user will be prompted a message saying contact already exist.
+        /// </summary>
         public void AddContactToList(Contacts contacts)
         {
             try
@@ -38,12 +45,14 @@ namespace AddressBook.Services
                     throw new Exception("It looks like this contact has already been added");
                 }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             { Debug.WriteLine(ex.Message); }
 
         }
 
-        //Remove contact
+        /// <summary>
+        /// Removes contact from the list, if email is correct, and removes it from the file.
+        /// </summary>
         public void RemoveContact(Contacts contact)
         {
             Console.WriteLine($"Confirm you want to delete {contact.FirstName} {contact.LastName} by entering the email address:");
@@ -55,6 +64,10 @@ namespace AddressBook.Services
                 {
                     _contacts.Remove(contact);
                     _fileService.SaveContactToFile(JsonConvert.SerializeObject(_contacts));
+                    Console.WriteLine();
+                    Console.WriteLine("Contact deleted successfully.");
+                    Console.ReadLine();
+
                 }
                 else
                 {
@@ -69,9 +82,11 @@ namespace AddressBook.Services
                 Console.ReadLine();
             }
         }
-    
 
-        //Update contact details
+
+        /// <summary>
+        /// Updates the details of the specific contact. Such as first name, last name etc and also saves the new details to the file.
+        /// </summary>
         public void UpdateContactDetails(Contacts existingContact, string newFirstName, string newLastName, string newEmail, string newPhoneNumber, string newAddress, string newPostalCode, string newCity)
         {
             existingContact.FirstName = newFirstName;
@@ -85,7 +100,9 @@ namespace AddressBook.Services
             _fileService.SaveContactToFile(JsonConvert.SerializeObject(_contacts));
         }
 
-        //List contacts
+        /// <summary>
+        /// GET LIST FROM FILE
+        /// </summary>
         public List<Contacts> GetContactFromList()
         {
 
@@ -96,7 +113,7 @@ namespace AddressBook.Services
                 {
                     _contacts = JsonConvert.DeserializeObject<List<Contacts>>(contacts)!;
                 }
-                
+
             }
             catch (Exception ex) { Debug.WriteLine(ex.Message); }
 

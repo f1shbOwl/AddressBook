@@ -29,8 +29,6 @@ namespace AddressBook.Models
             PostalCode = postalcode;
         }
 
-
-
     }
 
 
