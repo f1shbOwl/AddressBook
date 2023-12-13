@@ -24,11 +24,11 @@ namespace AddressBook.Services
                 
             {
                 Console.Clear();
-                Console.WriteLine("#  MENU  #");
+                Console.WriteLine(" #  MENU  #");
                 Console.WriteLine();
-                Console.WriteLine("1. Add new contact");
-                Console.WriteLine("2. Show all contacts");
-                Console.WriteLine("3. Exit");
+                Console.WriteLine(" 1. Add new contact");
+                Console.WriteLine(" 2. Show all contacts");
+                Console.WriteLine(" 3. Exit");
 
                 var option = Console.ReadLine();
 
@@ -47,7 +47,7 @@ namespace AddressBook.Services
                         break;
 
                     default:
-                        Console.WriteLine("Invalid option, please try again");
+                        Console.WriteLine(" Invalid option, please try again");
                         Console.ReadLine();
                         break;
 
@@ -64,25 +64,25 @@ namespace AddressBook.Services
             var contacts = new Contacts("FirstName", "LastName", "Email", "PhoneNumber", "Address", "City", "PostalCode");
 
             Console.Clear();
-            Console.Write("First name: ");
+            Console.Write(" First name: ");
             contacts.FirstName = Console.ReadLine()!;
 
-            Console.Write("Last name: ");
+            Console.Write(" Last name: ");
             contacts.LastName = Console.ReadLine()!;
 
-            Console.Write("Email: ");
+            Console.Write(" Email: ");
             contacts.Email = Console.ReadLine()!;
 
-            Console.Write("Phone number: ");
+            Console.Write(" Phone number: ");
             contacts.PhoneNumber = Console.ReadLine()!;
 
-            Console.Write("Address: ");
+            Console.Write(" Address: ");
             contacts.Address = Console.ReadLine()!;
 
-            Console.Write("Postal code: ");
+            Console.Write(" Postal code: ");
             contacts.PostalCode = Console.ReadLine()!;
 
-            Console.Write("City: ");
+            Console.Write(" City: ");
             contacts.City = Console.ReadLine()!;
 
 
@@ -94,13 +94,18 @@ namespace AddressBook.Services
 
         /// <summary>
         /// MENU SHOWING ALL CONTACTS by firstname and lastname. Numered. User can pick a contact to view a detail menu by picking the contacts corresponding number.
+        /// Do I want contacts.email here? it looks cleaner with only names and i want a better way then "-20" because they are not aligned.
+        /// But it is better if two people have the same name, email is unique.
         /// </summary>
         private void ShowAllMenu()
         {
             var Contacts = _ContactService.GetContactFromList();
+
             Console.Clear();
             Console.WriteLine();
-            Console.WriteLine("Press the corresponding contact number to see details");
+            Console.WriteLine(" Press the corresponding contact number to see details");
+            Console.WriteLine(" Press any key to back to main menu");
+            Console.WriteLine();
             Console.WriteLine();
 
             int contactNumber = 1;
@@ -108,7 +113,7 @@ namespace AddressBook.Services
             foreach (var contacts in Contacts)
             {
                 
-                Console.WriteLine($"    {contactNumber}. {contacts.FirstName} {contacts.LastName}");
+                Console.WriteLine($"    {contactNumber}. {contacts.FirstName} {contacts.LastName, -20} [{contacts.Email}]");
                 contactNumber++;
                 
             }
@@ -134,16 +139,16 @@ namespace AddressBook.Services
             {
                 Console.Clear();
                 Console.WriteLine();
-                Console.WriteLine("Contact Details:");
+                Console.WriteLine(" Contact Details:");
                 Console.WriteLine();
-                Console.WriteLine($"Name:    {selectedContact.FirstName} {selectedContact.LastName}");
-                Console.WriteLine($"Email:    {selectedContact.Email}");
-                Console.WriteLine($"Phone number:   {selectedContact.PhoneNumber}");
-                Console.WriteLine($"Address:    {selectedContact.Address}, {selectedContact.PostalCode} {selectedContact.City}");
+                Console.WriteLine($" Name:       {selectedContact.FirstName} {selectedContact.LastName}");
+                Console.WriteLine($" Email:      {selectedContact.Email}");
+                Console.WriteLine($" Phone:      {selectedContact.PhoneNumber}");
+                Console.WriteLine($" Address:    {selectedContact.Address}, {selectedContact.PostalCode} {selectedContact.City}");
                 Console.WriteLine();
-                Console.WriteLine("1. Change contact details");
-                Console.WriteLine("2. Delete Contact");
-                Console.WriteLine("3. Go Back to Main Menu");
+                Console.WriteLine("  1. Change contact details");
+                Console.WriteLine("  2. Delete Contact");
+                Console.WriteLine("  3. Go Back to Main Menu");
 
                 var option = Console.ReadLine();
 
@@ -175,7 +180,7 @@ namespace AddressBook.Services
 
                         _ContactService.UpdateContactDetails(selectedContact, newFirstName, newLastName, newEmail, newPhoneNumber, newAddress, newPostalCode, newCity);
                         Console.Clear();
-                        Console.WriteLine("Details changed, press any key to return to main menu");
+                        Console.WriteLine(" Details changed, press any key to return to main menu");
                         Console.ReadLine();
                         return;
 
@@ -188,7 +193,7 @@ namespace AddressBook.Services
                         return;
 
                     default:
-                        Console.WriteLine("Invalid option. Please try again.");
+                        Console.WriteLine(" Invalid option. Please try again.");
                         Console.ReadLine();
                         break;
                 }
