@@ -1,14 +1,10 @@
-﻿using AddressBook.Interfaces;
-using AddressBook.Models;
+﻿using AddressBook.Shared.Interfaces;
+using AddressBook.Shared.Models;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace AddressBook.Services
+
+namespace AddressBook.Shared.Services
 {
     public class ContactService : IContactService
     {
@@ -18,8 +14,9 @@ namespace AddressBook.Services
         /// <summary>
         /// Creates a file path and saves contacts to json file.
         /// </summary>
-        private readonly FileService _fileService = new FileService(Path.Combine(Environment.CurrentDirectory,@"..\..\..\SavedFiles\SavedContacts.json"));
-        
+        /// 
+        private readonly FileService _fileService = new FileService(Path.Combine(Environment.CurrentDirectory,@"..\..\..\SavedContacts.json"));
+
 
 
 

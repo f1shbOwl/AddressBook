@@ -1,6 +1,5 @@
-﻿namespace AddressBook.Interfaces
+﻿namespace AddressBook.Shared.Interfaces
 {
-
     /// <summary>
     /// Interface for contacts that is not really utilized right now.
     /// </summary>

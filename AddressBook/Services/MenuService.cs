@@ -1,10 +1,6 @@
-﻿using AddressBook.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using AddressBook.Shared.Models;
+using AddressBook.Shared.Services;
+
 
 namespace AddressBook.Services
 {
@@ -93,7 +89,7 @@ namespace AddressBook.Services
 
 
         /// <summary>
-        /// MENU SHOWING ALL CONTACTS by firstname and lastname. Numered. User can pick a contact to view a detail menu by picking the contacts corresponding number.
+        ///  MENU SHOWING ALL CONTACTS by firstname and lastname. Numered. User can pick a contact to view a detail menu by picking the contacts corresponding number.
         /// Do I want contacts.email here? it looks cleaner with only names and i want a better way then "-20" because they are not aligned.
         /// But it is better if two people have the same name, email is unique.
         /// </summary>

@@ -1,13 +1,7 @@
-﻿using AddressBook.Interfaces;
-using AddressBook.Models;
-using AddressBook.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AddressBook.Shared.Interfaces;
+using AddressBook.Shared.Models;
+using AddressBook.Shared.Services;
+
 
 namespace AddressBook.Tests
 {

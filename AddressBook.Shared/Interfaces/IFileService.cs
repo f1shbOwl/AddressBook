@@ -1,6 +1,5 @@
-﻿namespace AddressBook.Interfaces
+﻿namespace AddressBook.Shared.Interfaces
 {
-
     /// <summary>
     /// Interface for FileService
     /// </summary>

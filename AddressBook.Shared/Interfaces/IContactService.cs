@@ -1,8 +1,7 @@
-﻿using AddressBook.Models;
+﻿using AddressBook.Shared.Models;
 
-namespace AddressBook.Interfaces
+namespace AddressBook.Shared.Interfaces
 {
-
     /// <summary>
     /// Interface for ContactService
     /// </summary>
