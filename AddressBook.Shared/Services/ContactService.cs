@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System.Diagnostics;
 
 
+
 namespace AddressBook.Shared.Services
 {
     public class ContactService : IContactService

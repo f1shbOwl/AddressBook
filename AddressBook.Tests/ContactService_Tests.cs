@@ -18,10 +18,10 @@ namespace AddressBook.Tests
         {
             // Arrange
             IContactService contactService = new ContactService();
-            Contacts contact = new Contacts("FirstName", "LastName", "Email", "Phonenumber", "Address", "City", "PostalCode");
+            Contacts Contact = new Contacts("Adam", "Adamsson", "Adam@test.se", "0701231234", "Storgatan 1", "Bengtsfors", "60011");
 
             // Act
-            contactService.AddContactToList(contact);
+            contactService.AddContactToList(Contact);
 
             // Assert
             var result = contactService.GetContactFromList();

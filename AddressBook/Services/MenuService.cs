@@ -20,11 +20,18 @@ namespace AddressBook.Services
                 
             {
                 Console.Clear();
-                Console.WriteLine(" #  MENU  #");
                 Console.WriteLine();
-                Console.WriteLine(" 1. Add new contact");
-                Console.WriteLine(" 2. Show all contacts");
-                Console.WriteLine(" 3. Exit");
+                Console.WriteLine("_________________________");
+                Console.WriteLine();
+                Console.WriteLine("     Address Book    ");
+                Console.WriteLine("_________________________");
+                Console.WriteLine();
+                Console.WriteLine("     ###  MENU  ###");
+                Console.WriteLine();
+                Console.WriteLine("  1. Add new contact");
+                Console.WriteLine("  2. Show all contacts");
+                Console.WriteLine("  3. Exit");
+                Console.WriteLine("_________________________");
 
                 var option = Console.ReadLine();
 
@@ -99,8 +106,11 @@ namespace AddressBook.Services
 
             Console.Clear();
             Console.WriteLine();
-            Console.WriteLine(" Press the corresponding contact number to see details");
-            Console.WriteLine(" Press any key to back to main menu");
+            Console.WriteLine("_____________________________________________________________");
+            Console.WriteLine();
+            Console.WriteLine("  Press the corresponding contact number to see details");
+            Console.WriteLine("  Press any key to back to main menu");
+            Console.WriteLine("_____________________________________________________________");
             Console.WriteLine();
             Console.WriteLine();
 
@@ -135,7 +145,10 @@ namespace AddressBook.Services
             {
                 Console.Clear();
                 Console.WriteLine();
-                Console.WriteLine(" Contact Details:");
+                Console.WriteLine("_____________________________________________________________");
+                Console.WriteLine();
+                Console.WriteLine(" Contact Details");
+                Console.WriteLine("_____________________________________________________________");
                 Console.WriteLine();
                 Console.WriteLine($" Name:       {selectedContact.FirstName} {selectedContact.LastName}");
                 Console.WriteLine($" Email:      {selectedContact.Email}");
