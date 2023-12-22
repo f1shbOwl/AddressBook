@@ -4,22 +4,33 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AddressBook.WPF"
-        mc:Ignorable="d"
+        
+        xmlns:viewmodels="clr-namespace:AddressBook.WPF.Mvvm.ViewModels"
+        xmlns:views="clr-namespace:AddressBook.WPF.Mvvm.Views"
+        d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
+        
         WindowStartupLocation="CenterScreen"
-        Title="Address Book" Height="450 " Width="300">
-    
-    
+        mc:Ignorable="d"
+        Title="Address Book" Height="600" Width="400">
+
+
     <Grid Margin="20">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+        <ContentControl Content="{Binding CurrentViewModel}">
 
-        <StackPanel>
-            <Label Content="Lägg till en kontakt" />
-            <TextBlock Padding="5" Text="Ange ditt namn" />
-        </StackPanel>
+            <ContentControl.Resources>
 
 
+                <DataTemplate DataType="{x:Type viewmodels:ContactListViewModel}">
+                    <views:ContactListView />
+
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewmodels:ContactAddViewModel}">
+                    <views:ContactAddView />
+                </DataTemplate>
+                
+            </ContentControl.Resources>
+        </ContentControl>
+        
     </Grid>
 </Window>

@@ -10,9 +10,14 @@ namespace AddressBook.Shared.Services
     /// Tries to save a contact o json and if successful returns true. 
     /// </summary>
     /// 
-    internal class FileService(string filePath) : IFileService
+    public class FileService : IFileService
     {
-        private readonly string _filePath = filePath;
+        private readonly string _filePath;
+        
+        public FileService(string filePath)
+        {
+            _filePath = filePath;
+        }
 
         public bool SaveContactToFile(string SavedContact)
         {
