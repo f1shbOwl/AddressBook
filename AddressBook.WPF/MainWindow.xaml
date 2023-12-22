@@ -19,6 +19,9 @@
 
             <ContentControl.Resources>
 
+                <DataTemplate DataType="{x:Type viewmodels:MainMenuViewModel}">
+                    <views:MainMenuView />
+                </DataTemplate>
 
                 <DataTemplate DataType="{x:Type viewmodels:ContactListViewModel}">
                     <views:ContactListView />

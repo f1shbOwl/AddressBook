@@ -1,4 +1,5 @@
-﻿using AddressBook.Shared.Services;
+﻿using AddressBook.Shared.Models;
+using AddressBook.Shared.Services;
 using AddressBook.WPF.Mvvm.ViewModels;
 using AddressBook.WPF.Mvvm.Views;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,6 +28,7 @@ namespace AddressBook.WPF
                     services.AddTransient<ContactListView>();
                     services.AddTransient<ContactAddView>();
                     services.AddTransient<ContactAddViewModel>();
+                    services.AddTransient<MainMenuViewModel>();
                 })
                 .Build();
 

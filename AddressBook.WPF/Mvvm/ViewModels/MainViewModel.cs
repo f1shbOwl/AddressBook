@@ -10,6 +10,7 @@ namespace AddressBook.WPF.Mvvm.ViewModels
 {
     public partial class MainViewModel : ObservableObject
     {
+
         [ObservableProperty]
         private ObservableObject? _currentViewModel;
 
@@ -18,7 +19,7 @@ namespace AddressBook.WPF.Mvvm.ViewModels
         public MainViewModel(IServiceProvider sp) 
         {
             _sp = sp;
-            CurrentViewModel = _sp.GetRequiredService<ContactListViewModel>();
+            CurrentViewModel = _sp.GetRequiredService<MainMenuViewModel>();
         }
 
         

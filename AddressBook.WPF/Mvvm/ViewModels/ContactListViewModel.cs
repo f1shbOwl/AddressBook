@@ -24,9 +24,9 @@ internal partial class ContactListViewModel : ObservableObject
 
     [RelayCommand]
 
-    private void NavigateToMain()
+    private void NavigateToMainMenuView()
     {
         var mainViewModel = _sp.GetRequiredService<MainViewModel>();
-        mainViewModel.CurrentViewModel = _sp.GetRequiredService<MainViewModel>();
+        mainViewModel.CurrentViewModel = _sp.GetRequiredService<MainMenuViewModel>();
     }
 }

@@ -11,10 +11,36 @@
              
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <StackPanel>
-            <Label Content="Contact Add View" />
-            <Button Content="Navigate to Contact list" Command="{Binding NavigateToListCommand}"/>
+    
+    
+    
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="0,0,0,30">
+            <Label Content="First name" />
+            <TextBox Text="{Binding ContactForm.FirstName}" />
+            <Label Content="Last name" />
+            <TextBox Text="{Binding ContactForm.LastName}" />
+            <Label Content="Email" />
+            <TextBox Text="{Binding ContactForm.Email}" />
+            <Label Content="Phone" />
+            <TextBox Text="{Binding ContactForm.PhoneNumber}" />
+            <Label Content="Address" />
+            <TextBox Text="{Binding ContactForm.Address}" />
+            <Label Content="City" />
+            <TextBox Text="{Binding ContactForm.City}" />
+            <Label Content="Postalcode" />
+            <TextBox Text="{Binding ContactForm.PostalCode}" />
         </StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <Button Content="Show all Contacts" Command="{Binding NavigateToListCommand}" Height="50" Width="150" Margin="10,10"/>
+            <Button Content="Main Menu" Command="{Binding NavigateToMainMenuViewCommand}" Height="50" Width="150" Margin="10,10" />
+        </StackPanel>
+
     </Grid>
 </UserControl>
