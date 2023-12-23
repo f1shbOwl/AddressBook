@@ -9,7 +9,7 @@ namespace AddressBook.Shared.Services
 {
     public class ContactService : IContactService
     {
-        private List<Contacts> _contacts = new List<Contacts>();
+        public List<Contacts> _contacts = new List<Contacts>();
 
 
         /// <summary>

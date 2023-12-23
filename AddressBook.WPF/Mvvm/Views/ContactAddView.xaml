@@ -10,33 +10,34 @@
              d:DataContext="{d:DesignInstance Type=viewmodels:ContactAddViewModel}"
              
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="600" d:DesignWidth="600">
     
     
     
     <Grid Margin="20">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
+            <RowDefinition Height="400" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Margin="0,0,0,30">
+        <StackPanel Grid.Row="0" Margin="0,5,0,0">
             <Label Content="First name" />
-            <TextBox Text="{Binding ContactForm.FirstName}" />
+            <TextBox Text="{Binding Contacts.FirstName}" />
             <Label Content="Last name" />
-            <TextBox Text="{Binding ContactForm.LastName}" />
+            <TextBox Text="{Binding Contacts.LastName}" />
             <Label Content="Email" />
-            <TextBox Text="{Binding ContactForm.Email}" />
+            <TextBox Text="{Binding Contacts.Email}" />
             <Label Content="Phone" />
-            <TextBox Text="{Binding ContactForm.PhoneNumber}" />
+            <TextBox Text="{Binding Contacts.PhoneNumber}" />
             <Label Content="Address" />
-            <TextBox Text="{Binding ContactForm.Address}" />
+            <TextBox Text="{Binding Contacts.Address}" />
             <Label Content="City" />
-            <TextBox Text="{Binding ContactForm.City}" />
-            <Label Content="Postalcode" />
-            <TextBox Text="{Binding ContactForm.PostalCode}" />
+            <TextBox Text="{Binding Contacts.City}" />
+            <Label Content="Postal code" />
+            <TextBox Text="{Binding Contacts.PostalCode}" />
+            <Button Content="Add Contact" Command="{Binding AddContactToListCommand}" Height="40" Width="100" Margin="0,20,0,0" />
         </StackPanel>
-
+            
         <StackPanel Grid.Row="1">
             <Button Content="Show all Contacts" Command="{Binding NavigateToListCommand}" Height="50" Width="150" Margin="10,10"/>
             <Button Content="Main Menu" Command="{Binding NavigateToMainMenuViewCommand}" Height="50" Width="150" Margin="10,10" />

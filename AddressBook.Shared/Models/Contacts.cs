@@ -14,6 +14,10 @@ namespace AddressBook.Shared.Models
         public string City { get; set; } = null!;
         public string PostalCode { get; set; } = null!;
 
+        public Contacts() 
+        {
+        }
+
         public Contacts(string firstname, string lastname, string email, string phonenumber, string address, string city, string postalcode)
         {
             FirstName = firstname;

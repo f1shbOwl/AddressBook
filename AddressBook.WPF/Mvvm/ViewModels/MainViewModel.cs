@@ -20,8 +20,6 @@ namespace AddressBook.WPF.Mvvm.ViewModels
         {
             _sp = sp;
             CurrentViewModel = _sp.GetRequiredService<MainMenuViewModel>();
-        }
-
-        
+        }  
     }  
 }
