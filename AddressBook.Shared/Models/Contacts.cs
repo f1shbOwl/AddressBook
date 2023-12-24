@@ -14,6 +14,9 @@ namespace AddressBook.Shared.Models
         public string City { get; set; } = null!;
         public string PostalCode { get; set; } = null!;
 
+        /// <summary>
+        /// En tom konstruktor som jag behövde för att kunna använda den i min WPF-app. (Går kanske att göra på ett snyggare sätt, men det här får funka så länge.)
+        /// </summary>
         public Contacts() 
         {
         }
