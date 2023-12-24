@@ -1,4 +1,6 @@
-﻿using AddressBook.Shared.Services;
+﻿using AddressBook.Shared.Interfaces;
+using AddressBook.Shared.Models;
+using AddressBook.Shared.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,20 +10,29 @@ namespace AddressBook.WPF.Mvvm.ViewModels;
 
 internal partial class ContactListViewModel : ObservableObject
 {
+    private readonly ContactService _contactService;
 
     /// <summary>
     /// För att komma åt dependency injection.
     /// </summary>
     private readonly IServiceProvider _sp;
 
-    public ContactListViewModel(IServiceProvider sp)
+
+
+
+    public ContactListViewModel(IServiceProvider sp, ContactService contactService)
     {
         _sp = sp;
+        _contactService = contactService;
+
+        Contacts = new ObservableCollection<Contacts>(_contactService.GetContactFromList());
+
     }
 
 
     [ObservableProperty]
-    private ObservableCollection<ContactService> _contacts = [];
+    private ObservableCollection<Contacts> _contacts = new ObservableCollection<Contacts>();
+
 
 
 

@@ -20,14 +20,15 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         
-        <ListView Grid.Row="0">
+        <ListView Grid.Row="0" ItemsSource="{Binding Contacts}" HorizontalContentAlignment="Stretch">
             <ListView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate DataType="{x:Type models:Contacts}">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding FirstName}" VerticalAlignment="Center" />
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
