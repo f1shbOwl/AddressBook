@@ -20,22 +20,31 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Margin="0,5,0,0" HorizontalAlignment="Center">
-            <Button Content="Edit Contact" Command="{Binding .}" Height="25" Width="80" Margin="0,15,0,0" />
-            <Label Content="Name:" />
-            <TextBlock Text="{Binding Contact.FirstName}" />
-            <TextBlock Text="{Binding Contact.LastName}" />
-
-            <Label Content="Email:" />
-            <TextBlock Text="{Binding Contact.Email}" />
-
-            <Label Content="Phone:" />
-            <TextBlock Text="{Binding Contact.PhoneNumber}" />
-
-            <Label Content="Address:" />
-            <TextBlock Text="{Binding Contact.Address}" />
-            <TextBlock Text="{Binding Contact.PostalCode}" />
-            <TextBlock Text="{Binding Contact.City}" />
+        <StackPanel Grid.Row="0" Margin="0,5,0,0">
+            <Button Content="Edit Contact" Command="{Binding .}" Height="25" Width="80" Margin="0,15,0,0" HorizontalAlignment="right" />
+            <TextBlock>
+                <Run Text="Name:" FontWeight="Bold" FontSize="14"/>
+                <LineBreak></LineBreak> 
+                <Run Text ="{Binding Contact.FirstName}" FontSize="14"/>
+                <Run Text="{Binding Contact.LastName}" FontSize="14"/>
+                <LineBreak></LineBreak>
+                <LineBreak></LineBreak>
+                <Run Text="Email:" FontWeight="Bold" FontSize="14"/>
+                <LineBreak></LineBreak>
+                <Run Text="{Binding Contact.Email}" FontSize="14"/>
+                <LineBreak></LineBreak>
+                <LineBreak></LineBreak>
+                <Run Text="Phone:" FontWeight="Bold" FontSize="14"/>
+                <LineBreak></LineBreak>
+                <Run Text="{Binding Contact.PhoneNumber}" FontSize="14"/>
+                <LineBreak></LineBreak>
+                <LineBreak></LineBreak>
+                <Run Text="Address:" FontWeight="Bold" FontSize="14"/>
+                <LineBreak></LineBreak>
+                <Run Text="{Binding Contact.Address}" FontSize="14"/>
+                <Run Text="{Binding Contact.PostalCode}" FontSize="14"/>
+                <Run Text="{Binding Contact.City}" FontSize="14"/>
+            </TextBlock>
         </StackPanel>
         
 
