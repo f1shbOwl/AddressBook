@@ -21,6 +21,7 @@ namespace AddressBook.WPF
             _host = Host.CreateDefaultBuilder()
                 .ConfigureServices(services =>
                 {
+                    
                     services.AddSingleton<FileService>();
                     services.AddSingleton<ContactService>();
 
@@ -33,6 +34,7 @@ namespace AddressBook.WPF
                     services.AddTransient<ContactAddView>();
                     services.AddTransient<ContactAddViewModel>();
 
+                    services.AddTransient<MainMenuView>();
                     services.AddTransient<MainMenuViewModel>();
 
                     services.AddTransient<ContactDetailsView>();
@@ -40,6 +42,9 @@ namespace AddressBook.WPF
 
                     services.AddTransient<EditContactView>();
                     services.AddTransient<EditContactViewModel>();
+
+                    services.AddTransient<DeleteContactView>();
+                    services.AddTransient<DeleteContactViewModel>();
 
                 })
                 .Build();

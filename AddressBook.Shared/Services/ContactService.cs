@@ -21,6 +21,8 @@ namespace AddressBook.Shared.Services
 
         public Contacts SelectedContact { get; set; } = null!;
 
+        
+
         /// <summary>
         /// Adds contact to the list (if email is unique) and saves it to the file. If email is not unique user will be prompted a message saying contact already exist.
         /// </summary>
@@ -117,5 +119,49 @@ namespace AddressBook.Shared.Services
 
             return _contacts;
         }
+
+
+
+
+
+
+        ///<summary>
+        /// Ta bort kontakt i min WPF app.
+        ///</summary>
+        ///
+        public void RemoveContactInWpf(string confirmationEmail)
+        {
+            try
+            {
+                if (string.Equals(confirmationEmail, SelectedContact.Email, StringComparison.OrdinalIgnoreCase))
+                {
+                    _contacts.Remove(SelectedContact);
+                    _fileService.SaveContactToFile(JsonConvert.SerializeObject(_contacts));
+                }
+                else
+                {
+                    throw new Exception("Confirmation email does not match. Contact was not deleted");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
+
+        public void Update(Contacts contacts)
+        {
+            var contact = _contacts.FirstOrDefault(x => x.Email == contacts.Email);
+            if (contact != null)
+            {
+                
+                contact = contacts;
+                _fileService.SaveContactToFile(JsonConvert.SerializeObject(_contacts));
+            }
+        }
+
+
+
+
     }
 }

@@ -12,8 +12,15 @@
              d:DesignHeight="500" d:DesignWidth="300">
 
 
-    <Grid>
+    <Grid Margin="20">
 
+
+        <StackPanel>
+            <Label Content="Email:" Foreground="Gray" />
+            <TextBox Text="{Binding Contact.Email}" Padding="2, 5" />
+            <Button Content="Save" Command="{Binding UpdateCommand}" Padding="5" Margin="0,15" />
+        </StackPanel>
+        
 
     </Grid>
     

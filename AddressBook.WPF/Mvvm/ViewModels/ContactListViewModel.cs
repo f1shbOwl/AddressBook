@@ -1,5 +1,4 @@
-﻿using AddressBook.Shared.Interfaces;
-using AddressBook.Shared.Models;
+﻿using AddressBook.Shared.Models;
 using AddressBook.Shared.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -12,9 +11,6 @@ internal partial class ContactListViewModel : ObservableObject
 {
     private readonly ContactService _contactService;
 
-    /// <summary>
-    /// För att komma åt dependency injection.
-    /// </summary>
     private readonly IServiceProvider _sp;
 
 
@@ -34,34 +30,38 @@ internal partial class ContactListViewModel : ObservableObject
     private ObservableCollection<Contacts> _contacts = new ObservableCollection<Contacts>();
 
 
-    
-
-
-
-
-
-
-
-
-
-    [RelayCommand]
-    public void RemoveContact(Contacts contact) 
-    {
-        _contactService.RemoveContact(contact);
-        Contacts = new ObservableCollection<Contacts>(_contactService.GetContactFromList());
-
-    }
 
 
     /// <summary>
     ///  Navigering mellan views.
     /// </summary>
     ///
+
+
+    [RelayCommand]
+    private void NavigateToDeleteContactView(Contacts contacts)
+    {
+        _contactService.SelectedContact = contacts;
+
+        var mainViewModel = _sp.GetRequiredService<MainViewModel>();
+        mainViewModel.CurrentViewModel = _sp.GetService<DeleteContactViewModel>();
+    }
+
+    [RelayCommand]
+    private void NavigateToEditContactView(Contacts contacts)
+    {
+        _contactService.SelectedContact = contacts;
+
+        var mainViewModel = _sp.GetRequiredService<MainViewModel>();
+        mainViewModel.CurrentViewModel = _sp.GetService<EditContactViewModel>();
+    }
+
     [RelayCommand]
     private void NavigateToDetailsView(Contacts contacts)
     {
         _contactService.SelectedContact = contacts;
 
+        Contacts = new ObservableCollection<Contacts>(_contactService.GetContactFromList());
 
         var mainViewModel = _sp.GetRequiredService<MainViewModel>();
         mainViewModel.CurrentViewModel = _sp.GetService<ContactDetailsViewModel>();

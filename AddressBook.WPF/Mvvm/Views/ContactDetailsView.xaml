@@ -21,12 +21,13 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Margin="0,5,0,0">
-            <Button Content="Edit Contact" Command="{Binding .}" Height="25" Width="80" Margin="0,15,0,0" HorizontalAlignment="right" />
+            <Button Content="Edit" Command="{Binding .}" Height="25" Width="80" Margin="0,15,5,0" HorizontalAlignment="right"/>
+            <Button Grid.Row="0" Margin="5" HorizontalAlignment="Right" Height="25" Width="80" Content="Delete" Command="{Binding NavigateToDeleteContactViewCommand}"/>
             <TextBlock>
                 <Run Text="Name:" FontWeight="Bold" FontSize="14"/>
                 <LineBreak></LineBreak> 
                 <Run Text ="{Binding Contact.FirstName}" FontSize="14"/>
-                <Run Text="{Binding Contact.LastName}" FontSize="14"/>
+                <Run Text ="{Binding Contact.LastName}" FontSize="14"/>
                 <LineBreak></LineBreak>
                 <LineBreak></LineBreak>
                 <Run Text="Email:" FontWeight="Bold" FontSize="14"/>
@@ -49,7 +50,7 @@
         
 
         <StackPanel Grid.Row="1">
-            <Button Content="Show all Contacts" Command="{Binding NavigateToListViewCommand}" Height="30" Width="110" Margin="10,5"/>
+            <Button Content="Go Back" Command="{Binding NavigateToListViewCommand}" Height="30" Width="110" Margin="10,5"/>
             <Button Content="Main Menu" Command="{Binding NavigateToMainMenuViewCommand}" Height="30" Width="110" Margin="0" />
         </StackPanel>
 
