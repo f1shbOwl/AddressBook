@@ -34,14 +34,43 @@ internal partial class ContactListViewModel : ObservableObject
     private ObservableCollection<Contacts> _contacts = new ObservableCollection<Contacts>();
 
 
+    
+
+
+
+
+
+
+
+
+
+    [RelayCommand]
+    public void RemoveContact(Contacts contact) 
+    {
+        _contactService.RemoveContact(contact);
+        Contacts = new ObservableCollection<Contacts>(_contactService.GetContactFromList());
+
+    }
 
 
     /// <summary>
-    /// För att komma åt dependency injection - så att navigering fungerar mellan views.
+    ///  Navigering mellan views.
     /// </summary>
+    ///
+    [RelayCommand]
+    private void NavigateToDetailsView(Contacts contacts)
+    {
+        _contactService.SelectedContact = contacts;
+
+
+        var mainViewModel = _sp.GetRequiredService<MainViewModel>();
+        mainViewModel.CurrentViewModel = _sp.GetService<ContactDetailsViewModel>();
+    }
+
     [RelayCommand]
     private void NavigateToAddView()
     {
+
         var mainViewModel = _sp.GetRequiredService<MainViewModel>();
         mainViewModel.CurrentViewModel = _sp.GetService<ContactAddViewModel>();
     }

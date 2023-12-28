@@ -19,7 +19,7 @@ namespace AddressBook.Shared.Services
         private readonly FileService _fileService = new FileService(Path.Combine(Environment.CurrentDirectory,@"..\..\..\SavedContacts.json"));
 
 
-
+        public Contacts SelectedContact { get; set; } = null!;
 
         /// <summary>
         /// Adds contact to the list (if email is unique) and saves it to the file. If email is not unique user will be prompted a message saying contact already exist.

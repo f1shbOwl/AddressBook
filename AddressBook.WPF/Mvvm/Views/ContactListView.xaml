@@ -10,10 +10,17 @@
              d:DataContext="{d:DesignInstance Type=viewmodels:ContactListViewModel}"
              
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    
-    
+             d:DesignHeight="500" d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </UserControl.Resources>
+
+
     <Grid Margin="20">
+
+
+
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -27,8 +34,23 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto" />
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="{Binding FirstName}" VerticalAlignment="Center" />
+
+                        <StackPanel Grid.Column="0" Margin="0,0,0,5">
+                            <TextBlock>
+                                <Run Text="{Binding FirstName}" />
+                                <Run Text="{Binding LastName}" />
+                                <LineBreak></LineBreak>
+                                <Run Text="{Binding Email}" Foreground="DarkGray" />
+                            </TextBlock>
+                        </StackPanel>
+
+
+                        <Button Grid.Column="1" Content="i" CommandParameter="{Binding .}" Command="{Binding Path=DataContext.NavigateToDetailsViewCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"  Width="25" Height="25" Margin="5" FontFamily="#" />
+                        <Button Grid.Column="2" Content="X" CommandParameter="{Binding .}" Command="{Binding Path=DataContext.RemoveContactCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" Width="25" Height="25"/>
+                        
+
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

@@ -10,11 +10,11 @@
              d:DataContext="{d:DesignInstance Type=viewmodels:ContactAddViewModel}"
              
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="600">
+             d:DesignHeight="500" d:DesignWidth="300">
     
     
     
-    <Grid Margin="20">
+    <Grid Margin="20,20,20,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="400" />
             <RowDefinition Height="auto" />
@@ -35,12 +35,12 @@
             <TextBox Text="{Binding Contacts.PostalCode}" />
             <Label Content="City" />
             <TextBox Text="{Binding Contacts.City}" />
-            <Button Content="Add Contact" Command="{Binding AddContactToListCommand}" Height="40" Width="100" Margin="0,20,0,0" />
+            <Button Content="Add Contact" Command="{Binding AddContactToListCommand}" Height="25" Width="80" Margin="0,15,0,0" />
         </StackPanel>
             
         <StackPanel Grid.Row="1">
-            <Button Content="Show all Contacts" Command="{Binding NavigateToListCommand}" Height="50" Width="150" Margin="10,10"/>
-            <Button Content="Main Menu" Command="{Binding NavigateToMainMenuViewCommand}" Height="50" Width="150" Margin="10,10" />
+            <Button Content="Show all Contacts" Command="{Binding NavigateToListCommand}" Height="30" Width="110" Margin="10,5"/>
+            <Button Content="Main Menu" Command="{Binding NavigateToMainMenuViewCommand}" Height="30" Width="110" Margin="0" />
         </StackPanel>
 
     </Grid>

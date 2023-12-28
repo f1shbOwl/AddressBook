@@ -29,10 +29,16 @@ namespace AddressBook.WPF.Mvvm.ViewModels
         [ObservableProperty]
         private Contacts contacts = new Contacts();
 
+
+
+
         [RelayCommand]
         private void AddContactToList()
         {
-            _contactService.AddContactToList(contacts);
+            _contactService.AddContactToList(Contacts);
+
+            var mainViewModel = _sp.GetRequiredService<MainViewModel>();
+            mainViewModel.CurrentViewModel = _sp.GetRequiredService<ContactListViewModel>();
         }
 
         
