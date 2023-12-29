@@ -19,6 +19,10 @@ namespace AddressBook.Shared.Services
         private readonly FileService _fileService = new FileService(Path.Combine(Environment.CurrentDirectory,@"..\..\..\SavedContacts.json"));
 
 
+
+        /// <summary>
+        /// Used to 
+        /// </summary>
         public Contacts SelectedContact { get; set; } = null!;
 
         
@@ -122,13 +126,10 @@ namespace AddressBook.Shared.Services
 
 
 
-
-
-
         ///<summary>
-        /// Ta bort kontakt i min WPF app.
+        /// Ta bort kontakt i WPF applikationen genom att låta användaren bekräfta borttagning med "kontaktens" epost-adress.
+        /// Om e-postadressen är densamma, ta bort kontakt. Annars logga felmeddelande.
         ///</summary>
-        ///
         public void RemoveContactInWpf(string confirmationEmail)
         {
             try
@@ -149,6 +150,11 @@ namespace AddressBook.Shared.Services
             }
         }
 
+
+        /// <summary>
+        /// Används i WPF applikationen i EDIT view.
+        /// </summary>
+        /// <param name="contacts"></param>
         public void Update(Contacts contacts)
         {
             var contact = _contacts.FirstOrDefault(x => x.Email == contacts.Email);

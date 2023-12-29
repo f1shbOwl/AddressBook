@@ -109,7 +109,7 @@ namespace AddressBook.Services
             Console.WriteLine("_____________________________________________________________");
             Console.WriteLine();
             Console.WriteLine("  Press the corresponding contact number to see details");
-            Console.WriteLine("  Press any key to back to main menu");
+            Console.WriteLine("  Press enter to back to main menu");
             Console.WriteLine("_____________________________________________________________");
             Console.WriteLine();
             Console.WriteLine();

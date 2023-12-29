@@ -26,9 +26,12 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Row="0" Grid.Column="0" Margin="0,10,0,30">
-            <TextBlock Text="Are you sure you want to delete the following contact?" />
-            <TextBlock Text="{Binding Contact.FirstName}" />
-            <TextBlock Text="{Binding Contact.LastName}" />
+            <TextBlock>
+                <Run Text="Are you sure you want to delete the following contact?" />
+                <LineBreak />
+                <Run Text="{Binding Contact.FirstName}" FontWeight="Bold" FontSize="14" />
+                <Run Text="{Binding Contact.LastName}" FontWeight="Bold" FontSize="14"/>
+            </TextBlock>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="0">

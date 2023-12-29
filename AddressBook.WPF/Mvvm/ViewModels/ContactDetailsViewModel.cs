@@ -32,9 +32,8 @@ public partial class ContactDetailsViewModel : ObservableObject
 
 
     /// <summary>
-    /// Får inte den här knappen att fungera som jag vill
+    /// Navigering mellan views.
     /// </summary>
-    /// <param name="contacts"></param>
     [RelayCommand]
     private void NavigateToDeleteContactView()
     {
@@ -43,10 +42,7 @@ public partial class ContactDetailsViewModel : ObservableObject
         mainViewModel.CurrentViewModel = _sp.GetService<DeleteContactViewModel>();
     }
 
-    /// <summary>
-    /// Får inte den här knappen att fungera som jag vill
-    /// </summary>
-    /// <param name="contacts"></param>
+
     [RelayCommand]
     private void NavigateToEditContactView()
     {

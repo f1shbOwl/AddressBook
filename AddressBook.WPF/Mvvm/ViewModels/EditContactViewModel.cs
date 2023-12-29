@@ -28,7 +28,10 @@ namespace AddressBook.WPF.Mvvm.ViewModels
 
 
 
-
+        /// <summary>
+        /// navigering mellan views.
+        /// Update - Sparar uppdateringar gjorda i EDIT view.
+        /// </summary>
         [RelayCommand]
         private void Update()
         {

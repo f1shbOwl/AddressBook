@@ -16,17 +16,17 @@
 
 
         <StackPanel DataContext="{Binding Contact}">
-            <Label Content="FirstName:" Foreground="Gray" Margin="5"/>
+            <Label Content="First name:" Foreground="Gray" Margin="5"/>
             <TextBox Text="{Binding FirstName}" Padding="2, 5" Margin="5" />
-            <Label Content="LastName:" Foreground="Gray" />
+            <Label Content="Last name:" Foreground="Gray" />
             <TextBox Text="{Binding LastName}" Padding="2, 5" Margin="5" />
             <Label Content="Email:" Foreground="Gray" />
             <TextBox Text="{Binding Email}" Padding="2, 5" Margin="5" />
-            <Label Content="PhoneNumber:" Foreground="Gray" />
+            <Label Content="Phone number:" Foreground="Gray" />
             <TextBox Text="{Binding PhoneNumber}" Padding="2, 5" Margin="5" />
             <Label Content="Address:" Foreground="Gray" />
             <TextBox Text="{Binding Address}" Padding="2, 5" Margin="5" />
-            <Label Content="PostalCode:" Foreground="Gray" />
+            <Label Content="Postal code:" Foreground="Gray" />
             <TextBox Text="{Binding PostalCode}" Padding="2, 5" Margin="5" />
             <Label Content="City:" Foreground="Gray" />
             <TextBox Text="{Binding City}" Padding="2, 5" Margin="5" />
