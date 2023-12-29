@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="AddressBook.WPF.Mvvm.Views.EditContactView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AddressBook.WPF.Mvvm.Views"
+             
+             xmlns:viewmodels="clr-namespace:AddressBook.WPF.Mvvm.ViewModels"
+             d:DataContext="{d:DesignInstance Type=viewmodels:EditContactViewModel}"
+             
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="300">
+
+
+    <Grid Margin="20">
+
+
+        <StackPanel DataContext="{Binding Contact}">
+            <Label Content="First name:" Foreground="Gray" Margin="5"/>
+            <TextBox Text="{Binding FirstName}" Padding="2, 5" Margin="5" />
+            <Label Content="Last name:" Foreground="Gray" />
+            <TextBox Text="{Binding LastName}" Padding="2, 5" Margin="5" />
+            <Label Content="Email:" Foreground="Gray" />
+            <TextBox Text="{Binding Email}" Padding="2, 5" Margin="5" />
+            <Label Content="Phone number:" Foreground="Gray" />
+            <TextBox Text="{Binding PhoneNumber}" Padding="2, 5" Margin="5" />
+            <Label Content="Address:" Foreground="Gray" />
+            <TextBox Text="{Binding Address}" Padding="2, 5" Margin="5" />
+            <Label Content="Postal code:" Foreground="Gray" />
+            <TextBox Text="{Binding PostalCode}" Padding="2, 5" Margin="5" />
+            <Label Content="City:" Foreground="Gray" />
+            <TextBox Text="{Binding City}" Padding="2, 5" Margin="5" />
+            <Button Content="Save" CommandParameter="{Binding .}" Command="{Binding Path=DataContext.UpdateCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" Padding="5" Margin="0,15" />
+        </StackPanel>
+        
+
+    </Grid>
+    
+    
+</UserControl>

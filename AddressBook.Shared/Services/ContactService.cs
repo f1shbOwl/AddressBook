@@ -9,7 +9,7 @@ namespace AddressBook.Shared.Services
 {
     public class ContactService : IContactService
     {
-        private List<Contacts> _contacts = new List<Contacts>();
+        public List<Contacts> _contacts = new List<Contacts>();
 
 
         /// <summary>
@@ -20,6 +20,12 @@ namespace AddressBook.Shared.Services
 
 
 
+        /// <summary>
+        /// Used to 
+        /// </summary>
+        public Contacts SelectedContact { get; set; } = null!;
+
+        
 
         /// <summary>
         /// Adds contact to the list (if email is unique) and saves it to the file. If email is not unique user will be prompted a message saying contact already exist.
@@ -117,5 +123,51 @@ namespace AddressBook.Shared.Services
 
             return _contacts;
         }
+
+
+
+        ///<summary>
+        /// Ta bort kontakt i WPF applikationen genom att låta användaren bekräfta borttagning med "kontaktens" epost-adress.
+        /// Om e-postadressen är densamma, ta bort kontakt. Annars logga felmeddelande.
+        ///</summary>
+        public void RemoveContactInWpf(string confirmationEmail)
+        {
+            try
+            {
+                if (string.Equals(confirmationEmail, SelectedContact.Email, StringComparison.OrdinalIgnoreCase))
+                {
+                    _contacts.Remove(SelectedContact);
+                    _fileService.SaveContactToFile(JsonConvert.SerializeObject(_contacts));
+                }
+                else
+                {
+                    throw new Exception("Confirmation email does not match. Contact was not deleted");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
+
+
+        /// <summary>
+        /// Används i WPF applikationen i EDIT view.
+        /// </summary>
+        /// <param name="contacts"></param>
+        public void Update(Contacts contacts)
+        {
+            var contact = _contacts.FirstOrDefault(x => x.Email == contacts.Email);
+            if (contact != null)
+            {
+                
+                contact = contacts;
+                _fileService.SaveContactToFile(JsonConvert.SerializeObject(_contacts));
+            }
+        }
+
+
+
+
     }
 }

@@ -1,5 +1,4 @@
-﻿using AddressBook.WPF.Mvvm.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,11 +16,11 @@ using System.Windows.Shapes;
 namespace AddressBook.WPF.Mvvm.Views
 {
     /// <summary>
-    /// Interaction logic for ContactAddView.xaml
+    /// Interaction logic for EditContactView.xaml
     /// </summary>
-    public partial class ContactAddView : UserControl
+    public partial class EditContactView : UserControl
     {
-        public ContactAddView()
+        public EditContactView()
         {
             InitializeComponent();
         }

@@ -11,5 +11,7 @@ namespace AddressBook.Shared.Interfaces
         List<Contacts> GetContactFromList();
         void RemoveContact(Contacts contact);
         void UpdateContactDetails(Contacts existingContact, string newFirstName, string newLastName, string newEmail, string newPhoneNumber, string newAddress, string newPostalCode, string newCity);
+
+        void RemoveContactInWpf(string confirmationEmail);
     }
 }

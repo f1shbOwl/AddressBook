@@ -11,7 +11,7 @@
         
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="Address Book" Height="600" Width="400">
+        Title="Address Book" Height="800" Width="600">
 
 
     <Grid Margin="20">
@@ -19,6 +19,9 @@
 
             <ContentControl.Resources>
 
+                <DataTemplate DataType="{x:Type viewmodels:MainMenuViewModel}">
+                    <views:MainMenuView />
+                </DataTemplate>
 
                 <DataTemplate DataType="{x:Type viewmodels:ContactListViewModel}">
                     <views:ContactListView />
@@ -26,7 +29,19 @@
                 </DataTemplate>
 
                 <DataTemplate DataType="{x:Type viewmodels:ContactAddViewModel}">
-                    <views:ContactAddView />
+                    <views:ContactAddView /> 
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewmodels:ContactDetailsViewModel}">
+                    <views:ContactDetailsView />
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewmodels:EditContactViewModel}">
+                    <views:EditContactView />
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewmodels:DeleteContactViewModel}">
+                    <views:DeleteContactView />
                 </DataTemplate>
                 
             </ContentControl.Resources>
