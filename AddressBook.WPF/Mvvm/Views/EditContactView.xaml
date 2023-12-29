@@ -15,10 +15,22 @@
     <Grid Margin="20">
 
 
-        <StackPanel>
+        <StackPanel DataContext="{Binding Contact}">
+            <Label Content="FirstName:" Foreground="Gray" Margin="5"/>
+            <TextBox Text="{Binding FirstName}" Padding="2, 5" Margin="5" />
+            <Label Content="LastName:" Foreground="Gray" />
+            <TextBox Text="{Binding LastName}" Padding="2, 5" Margin="5" />
             <Label Content="Email:" Foreground="Gray" />
-            <TextBox Text="{Binding Contact.Email}" Padding="2, 5" />
-            <Button Content="Save" Command="{Binding UpdateCommand}" Padding="5" Margin="0,15" />
+            <TextBox Text="{Binding Email}" Padding="2, 5" Margin="5" />
+            <Label Content="PhoneNumber:" Foreground="Gray" />
+            <TextBox Text="{Binding PhoneNumber}" Padding="2, 5" Margin="5" />
+            <Label Content="Address:" Foreground="Gray" />
+            <TextBox Text="{Binding Address}" Padding="2, 5" Margin="5" />
+            <Label Content="PostalCode:" Foreground="Gray" />
+            <TextBox Text="{Binding PostalCode}" Padding="2, 5" Margin="5" />
+            <Label Content="City:" Foreground="Gray" />
+            <TextBox Text="{Binding City}" Padding="2, 5" Margin="5" />
+            <Button Content="Save" CommandParameter="{Binding .}" Command="{Binding Path=DataContext.UpdateCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" Padding="5" Margin="0,15" />
         </StackPanel>
         
 

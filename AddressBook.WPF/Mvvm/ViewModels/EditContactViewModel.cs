@@ -17,7 +17,7 @@ namespace AddressBook.WPF.Mvvm.ViewModels
             _sp = sp;
             _contactService = contactService;
 
-            contact = _contactService.SelectedContact;
+            Contact = _contactService.SelectedContact;
         }
 
 
@@ -34,8 +34,9 @@ namespace AddressBook.WPF.Mvvm.ViewModels
         {
             _contactService.Update(Contact);
 
+
             var mainViewModel = _sp.GetRequiredService<MainViewModel>();
-            mainViewModel.CurrentViewModel = _sp.GetRequiredService<ContactListViewModel>();
+            mainViewModel.CurrentViewModel = _sp.GetRequiredService<ContactDetailsViewModel>();
         }
 
         [RelayCommand]

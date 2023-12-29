@@ -7,7 +7,7 @@ using System.Collections.ObjectModel;
 
 namespace AddressBook.WPF.Mvvm.ViewModels;
 
-internal partial class ContactListViewModel : ObservableObject
+public partial class ContactListViewModel : ObservableObject
 {
     private readonly ContactService _contactService;
 
@@ -61,7 +61,7 @@ internal partial class ContactListViewModel : ObservableObject
     {
         _contactService.SelectedContact = contacts;
 
-        Contacts = new ObservableCollection<Contacts>(_contactService.GetContactFromList());
+        
 
         var mainViewModel = _sp.GetRequiredService<MainViewModel>();
         mainViewModel.CurrentViewModel = _sp.GetService<ContactDetailsViewModel>();

@@ -29,6 +29,18 @@ namespace AddressBook.WPF.Mvvm.ViewModels
         [ObservableProperty]
         private Contacts contact = new();
 
+
+
+
+
+
+
+
+        /// <summary>
+        /// Delete contact by by confirming contact email
+        /// </summary>
+        /// <param name="contacts"></param>
+
         [RelayCommand]
         private void ConfirmDeleteContact(Contacts contacts)
         {
@@ -45,13 +57,14 @@ namespace AddressBook.WPF.Mvvm.ViewModels
             }
         }
 
+        /// <summary>
+        /// Cancel delete and go back to List View.
+        /// </summary>
 
         [RelayCommand]
         public void CancelDelete()
         {
-            /// <summary>
-            /// Ångra borttagning.
-            /// </summary>
+
             var mainViewModel = _sp.GetRequiredService<MainViewModel>();
             mainViewModel.CurrentViewModel = _sp.GetService<ContactListViewModel>();
         }
